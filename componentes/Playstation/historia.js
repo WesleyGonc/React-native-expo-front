@@ -1,0 +1,28 @@
+import React from "react";
+import { View, Text, Image } from "react-native";
+
+import estilo from "../../assets/estilos/estilos";
+import console from '../../assets/historia/console-playstation.jpg';
+
+export default function Historia() {
+    return (
+        <View>
+            <Text style={estilo.titulo}>História do PlayStation</Text>
+
+            <Image style={estilo.capa} source={console} />
+
+            <Text style={estilo.descricao}>A Sony iniciou sua jornada no mundo dos consoles de vídeo games em 1994, com a chegada do PS1 ao Japão. A expansão não demorou e em Setembro de 1995 o aparelho chegou aos Estados Unidos. Naquela época, duas outras gigantes japonesas, Sega e Nintendo, dominavam o mercado de jogos eletrônicos, e ninguém esperava que um terceiro player pudesse mudar isso.
+
+            {"\n"}
+            {"\n"}
+
+            Quando o PS1 foi anunciado nos Estados Unidos por U$$ 299, isso mexeu com o mercado já que alguns dias antes a sega havia anunciado o Saturn por $399, o que somado com os diversos problemas causados pelo lançamento as pressas do Saturn, consolidaram a posição do PlayStation no mercado de jogos.
+
+            {"\n"}
+            {"\n"}
+
+            Isso tudo foi somado com o fato do Saturn ser focado em jogos 2D, enquanto o PS1 chegou com a proposta de ser um console totalmente em 3D, o que o tornava ainda mais interessante, por ser um console mais poderoso e mais barato que o seu concorrente.
+            </Text>
+        </View>
+	)
+}
