@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { View, TextInput, TextInput, Button, StyleSheet } from 'react-native';
+import { View, TextInput, StyleSheet } from 'react-native';
 import { registerUser } from '../components/api';
+import {Button} from 'react-native-elements';
+
 
 export default function RegisterScreen() {
   const [username, setUsername] = useState('');
@@ -13,7 +15,7 @@ export default function RegisterScreen() {
       console.error(error);
     }
   };
-
+  
   return (
     <View style={styles.container}>
       <TextInput
@@ -48,3 +50,4 @@ const styles = StyleSheet.create({
     borderColor: 'gray',
   },
 });
+

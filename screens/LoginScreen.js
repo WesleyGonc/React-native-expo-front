@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { View, TextInput, StyleSheet} from 'react-native';
 import { loginUser } from '../components/api';
+import { useNavigation } from '@react-navigation/native';
+import {Button} from 'react-native-elements';
 
 export default function LoginScreen() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigation = useNavigation()
 
   const handleLogin = async () => {
     try {
@@ -15,6 +18,10 @@ export default function LoginScreen() {
       console.error(error);
     }
   };
+
+  const handleRegisterNavigation = () => {
+    navigation.navigate('Register')
+  }
 
   return (
     <View style={styles.container}>
@@ -31,7 +38,10 @@ export default function LoginScreen() {
         onChangeText={setPassword}
         style={styles.input}
       />
-      <Button title="Login" onPress={handleLogin} />
+      <View style={styles.containerButton}>
+        <Button buttonStyle={styles.Button} title="Login" onPress={handleLogin} />
+        <Button buttonStyle={styles.Button} title="Register" onPress={handleRegisterNavigation}/>
+      </View>
     </View>
   );
 }
@@ -48,5 +58,12 @@ const styles = StyleSheet.create({
     padding: 10,
     borderWidth: 1,
     borderColor: 'gray',
+  },
+  containerButton:{
+    flexDirection: 'row',
+  },
+  Button: {
+    marginRight: 10,
+    borderColor: "red"
   },
 });
