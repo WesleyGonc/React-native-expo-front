@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const { Pool } = require('pg'); // Importa o módulo do PostgreSQL
+const { Pool } = require('pg'); 
 
 const app = express();
 app.use(cors());
@@ -14,7 +14,7 @@ const pool = new Pool({
   host: '',
   database: '',
   password: '',
-  port: 5432, // Porta padrão do PostgreSQL
+  port: '',
 });
 
 const SECRET_KEY = 'AINDA_NÃO_SEI';

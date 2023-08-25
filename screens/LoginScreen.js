@@ -39,8 +39,8 @@ export default function LoginScreen() {
         style={styles.input}
       />
       <View style={styles.containerButton}>
-        <Button buttonStyle={styles.Button} title="Login" onPress={handleLogin} />
-        <Button buttonStyle={styles.Button} title="Register" onPress={handleRegisterNavigation}/>
+        <Button  buttonStyle={{borderColor: "lightblue"}} raised type= "outline" titleStyle={{color: "black", fontWeight: 'bold'}} containerStyle={{marginHorizontal: 10}} title="Login" onPress={handleLogin} />
+        <Button  title="Register" onPress={handleRegisterNavigation}/>
       </View>
     </View>
   );
@@ -61,9 +61,5 @@ const styles = StyleSheet.create({
   },
   containerButton:{
     flexDirection: 'row',
-  },
-  Button: {
-    marginRight: 10,
-    borderColor: "red"
   },
 });
