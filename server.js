@@ -46,12 +46,16 @@ app.post('/login', async (req, res) => {
 });
 
 app.post('/register', async (req, res) => {
-  const { username, password} = req.body;
+  const { username, password, isTrainer, cpf, escolaridade, formacao, anosExperiencia } = req.body;
 
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
-    const query = 'INSERT INTO users (username, password) VALUES ($1, $2)';
-    await pool.query(query, [username, hashedPassword]);
+    const userResult = await pool.query('INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id', [username, hashedPassword]);
+
+    if (isTrainer) {
+      const userId = userResult.rows[0].id;
+      await pool.query('INSERT INTO trainers (user_id, cpf, escolaridade, formacao, anos_experiencia) VALUES ($1, $2, $3, $4, $5)', [userId, cpf, escolaridade, formacao, anosExperiencia]);
+    }
 
     res.json({ message: 'Usuario registrado com sucesso' });
   } catch (error) {
